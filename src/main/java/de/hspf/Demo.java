@@ -1,16 +1,25 @@
 package de.hspf;
 
 /**
- * The Demo class demonstrates the use of the Book class. It shows how to create
- * Book objects, assign values to their fields, and call methods on them.
- *
- * This example is intended for first-semester students learning about
- * object-oriented programming in Java.
+ * The Demo class demonstrates how to use both the Book and Calculator classes.
+ * It shows how to create and modify Book objects, and how Java handles method
+ * overloading in the Calculator class when multiplying integers, doubles, and mixed types.
  */
 public class Demo
 {
 
     public static void main(String[] args)
+    {
+        // Call the three separate demonstration methods
+        demonstrateBookUsage();
+        demonstrateCalculatorUsage();
+        demonstrateSemesterCredits();
+    }
+
+    /**
+     * This method demonstrates how to create and use Book objects.
+     */
+    public static void demonstrateBookUsage()
     {
         // Create a simple String variable
         String anyKindOfText = "Hello";
@@ -40,5 +49,57 @@ public class Demo
         // Call the printDetails() method on both Book objects
         myBook.printDetails();
         secondBook.printDetails();
+    }
+
+    /**
+     * This method demonstrates the use of the Calculator class and method overloading.
+     */
+    public static void demonstrateCalculatorUsage()
+    {
+        System.out.println("\n--- Calculator Demonstration ---");
+
+        // Multiply two integers
+        int intResult = Calculator.multiply(3, 5);
+        System.out.println("int * int = " + intResult);
+
+        // Multiply two doubles
+        double doubleResult = Calculator.multiply(2.5, 4.2);
+        System.out.println("double * double = " + doubleResult);
+
+        // Mix int and double: one of the int values will be automatically converted to double
+        double mixedResult = Calculator.multiply(4, 2.5);
+        System.out.println("int * double = " + mixedResult);
+
+        // The reverse order works too
+        double mixedResult2 = Calculator.multiply(2.5, 4);
+        System.out.println("double * int = " + mixedResult2);
+    }
+
+    /**
+     * This method demonstrates how a simple workload or credit calculation
+     * can be handled using a helper method called semester().
+     */
+    public static void demonstrateSemesterCredits()
+    {
+        int credits = 90;  // initial number of credits
+
+        // Call the semester() method to process the workload
+        int actualCredits = semester(credits);
+
+        // Print both the original and processed values
+        System.out.println("My credits are: " + credits);
+        System.out.println("Actual credits: " + actualCredits);
+    }
+
+    /**
+     * A simple helper method that represents a semester workload calculation.
+     * Currently, it divides the workload by itself (so the result is always 1),
+     * but this could later be extended to perform more complex logic.
+     */
+    public static int semester(int workload)
+    {
+        workload = workload / workload; // Simplified placeholder calculation
+        System.out.println("The workload this semester is " + workload);
+        return workload; // Return the calculated value
     }
 }

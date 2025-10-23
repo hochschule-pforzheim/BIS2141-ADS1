@@ -43,3 +43,4 @@ release.properties
 # NetBeans-specific build output
 /build/
 /nbproject/Makefile-*.mk
+/.idea/
