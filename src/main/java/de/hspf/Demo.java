@@ -3,7 +3,8 @@ package de.hspf;
 /**
  * The Demo class demonstrates how to use both the Book and Calculator classes.
  * It shows how to create and modify Book objects, and how Java handles method
- * overloading in the Calculator class when multiplying integers, doubles, and mixed types.
+ * overloading in the Calculator class when multiplying integers, doubles, and
+ * mixed types.
  */
 public class Demo
 {
@@ -11,9 +12,13 @@ public class Demo
     public static void main(String[] args)
     {
         // Call the three separate demonstration methods
-        demonstrateBookUsage();
-        demonstrateCalculatorUsage();
-        demonstrateSemesterCredits();
+        // demonstrateBookUsage();
+        // demonstrateCalculatorUsage();
+        //demonstrateSemesterCredits();#
+
+        // LECTURE 06 & 07
+        demonstrateLinkedListUsage();
+        // demonstrateStackQueueUsage();
     }
 
     /**
@@ -52,7 +57,8 @@ public class Demo
     }
 
     /**
-     * This method demonstrates the use of the Calculator class and method overloading.
+     * This method demonstrates the use of the Calculator class and method
+     * overloading.
      */
     public static void demonstrateCalculatorUsage()
     {
@@ -76,8 +82,8 @@ public class Demo
     }
 
     /**
-     * This method demonstrates how a simple workload or credit calculation
-     * can be handled using a helper method called semester().
+     * This method demonstrates how a simple workload or credit calculation can
+     * be handled using a helper method called semester().
      */
     public static void demonstrateSemesterCredits()
     {
@@ -101,5 +107,75 @@ public class Demo
         workload = workload / workload; // Simplified placeholder calculation
         System.out.println("The workload this semester is " + workload);
         return workload; // Return the calculated value
+    }
+
+    /**
+     * Demonstrates basic usage of a LinkedList: adding, removing, and
+     * traversing elements.
+     */
+    public static void demonstrateLinkedListUsage()
+    {
+        System.out.println("\n--- LinkedList Demonstration ---");
+
+        java.util.LinkedList<Integer> list = new java.util.LinkedList<>();
+
+        // Add elements
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        System.out.println("Initial list: " + list);
+
+        // Remove one element
+        list.remove(1);
+        System.out.println("After removing index 1: " + list);
+
+        // Traverse with for-each
+        System.out.print("Traversing: ");
+        for (int value : list)
+        {
+            System.out.print(value + " ");
+        }
+        System.out.println();
+
+        // Add elements at beginning and end
+        list.addFirst(5);
+        list.addLast(40);
+
+        System.out.println("After addFirst and addLast: " + list);
+    }
+
+    /**
+     * Demonstrates basic Stack (LIFO) and Queue (FIFO) usage.
+     */
+    public static void demonstrateStackQueueUsage()
+    {
+        System.out.println("\n--- Stack & Queue Demonstration ---");
+
+        // ---------------- STACK ----------------
+        java.util.Stack<String> stack = new java.util.Stack<>();
+
+        stack.push("A");
+        stack.push("B");
+        stack.push("C");
+
+        System.out.println("Stack after pushes: " + stack);
+
+        System.out.println("Top element (peek): " + stack.peek());
+        System.out.println("Popped element: " + stack.pop());
+        System.out.println("Stack after pop: " + stack);
+
+        // ---------------- QUEUE ----------------
+        java.util.Queue<String> queue = new java.util.LinkedList<>();
+
+        queue.add("Customer 1");
+        queue.add("Customer 2");
+        queue.add("Customer 3");
+
+        System.out.println("Queue after adds: " + queue);
+
+        System.out.println("Front element (peek): " + queue.peek());
+        System.out.println("Dequeued element: " + queue.remove());
+        System.out.println("Queue after remove: " + queue);
     }
 }
