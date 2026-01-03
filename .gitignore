@@ -44,3 +44,4 @@ release.properties
 /build/
 /nbproject/Makefile-*.mk
 /.idea/
+nbactions.xml
